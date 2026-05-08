@@ -7,34 +7,8 @@
 
 
 
-## Architecture
 
-
-┌────────────────────────────────────────────────────────┐
-│                    FastAPI Application                 │
-│                                                        │
-│  POST /ingest        POST /search      GET /stats      │
-│        │                   │                           │
-│        ▼                   ▼                           │
-│  ┌──────────────────────────────────────────────┐      │
-│  │          Embedding Service                   │      │
-│  │  • all-MiniLM-L6-v2 (384-dim)               │      │
-│  │  • LRU in-memory cache                       │      │
-│  │  • Timeout guard (ThreadPoolExecutor)        │      │
-│  └──────────────────────────────────────────────┘      │
-│        │                   │                           │
-│        ▼                   ▼                           │
-│  ┌──────────────┐   ┌──────────────────────────┐       │
-│  │   SQLite     │   │    FAISS Index           │       │
-│  │  (metadata)  │   │  IndexFlatIP + IDMap     │       │
-│  │  text, meta, │   │  (cosine via L2-norm)    │       │
-│  │  timestamp   │   │  upgrade: IVF / HNSW     │       │
-│  └──────────────┘   └──────────────────────────┘       │
-└────────────────────────────────────────────────────────┘
-
-
-
-## Quick Start
+##  Start
 
 # 1. Install dependencies
 pip install -r requirements.txt

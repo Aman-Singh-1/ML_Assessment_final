@@ -39,14 +39,20 @@ curl -X POST "http://localhost:8001/api/v1/ingest" \
 ## Search
 
 
-curl -X POST http://localhost:8001/api/v1/search -H "Content-Type: application/json"  -d '{"query": "machine learning talent acquisition", "top_k": 5}'
+```bash
+curl -X POST "http://localhost:8001/api/v1/search" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"machine learning talent acquisition","top_k":5}'
+```
 
 
 ## Bulk Ingest Documents
 
-curl -X POST http://localhost:8001/api/v1/ingest/bulk \
+```bash
+curl -X POST "http://localhost:8001/api/v1/ingest/bulk" \
   -H "Content-Type: application/json" \
   -d @documents.json
+```
 
 ## Get Document by ID
 curl http://localhost:8001/api/v1/documents/16

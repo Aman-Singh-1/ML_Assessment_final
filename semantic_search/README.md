@@ -32,8 +32,8 @@ pytest tests/ -v
 
 
 curl -X POST "http://localhost:8001/api/v1/ingest" \
--H "Content-Type: application/json" \
--d '{"text":"We are looking for an ML engineer","metadata":{"source":"crm"}}'
+  -H "Content-Type: application/json" \
+  -d '{"text":"We are looking for an ML engineer","metadata":{"source":"crm"}}'
 
 ## Search
 
